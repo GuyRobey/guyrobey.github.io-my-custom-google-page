@@ -66,7 +66,7 @@
         .search-input-wrapper {
             display: flex; /* Use flexbox to align input and button horizontally */
             width: 100%; /* Takes full width of its parent (.search-container) */
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for the search bar */
+            background-color: rgba(176, 196, 175, 0.9); /* Changed to Sage Green with 90% opacity */
             border-radius: 9999px; /* Makes the wrapper fully rounded (pill shape) */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
             overflow: hidden; /* Ensures content inside respects the rounded corners */
@@ -153,4 +153,21 @@
                     } else {
                         // Otherwise, perform a Google search
                         // encodeURIComponent ensures special characters in the query are handled correctly
-                        window.location.href = `https://www.
+                        window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                    }
+                }
+            };
+
+            // Add event listener for the search button click
+            searchButton.addEventListener('click', performSearch);
+
+            // Add event listener for the 'Enter' key press in the search input
+            searchInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
